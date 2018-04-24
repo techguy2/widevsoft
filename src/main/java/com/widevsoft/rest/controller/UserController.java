@@ -11,6 +11,6 @@ public class UserController {
 
 	@RequestMapping(value="/users/{id}", method= RequestMethod.POST)	
 	public String userPackageInfo(@PathVariable("id") int userId){	
-		return "Helldfo";
+		return "Hello";
 	}
 }
