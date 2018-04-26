@@ -5,6 +5,7 @@ import java.util.List;
 import com.widevsoft.rest.pojo.Role;
 import com.widevsoft.rest.pojo.User;
 
+
 public interface UserRoleDao {
 	
 	public User findUserWithUsernameAndPassword(String username, String password);
@@ -22,6 +23,8 @@ public interface UserRoleDao {
 	public boolean updateUserRoleById(User user);
 	
 	public boolean deleteUserById(User user);
+	
+	public boolean deleteRoleById(Role role);
 	
 }
 
