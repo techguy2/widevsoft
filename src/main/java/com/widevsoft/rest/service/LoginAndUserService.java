@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.widevsoft.rest.dao.UserRoleDaoImpl;
-
 import com.widevsoft.rest.pojo.Role;
 import com.widevsoft.rest.pojo.User;
+import com.widevsoft.rest.pojo.UserEager;
 
 @Service
 public class LoginAndUserService {
@@ -17,6 +17,8 @@ public class LoginAndUserService {
 	private UserRoleDaoImpl userRoleDaoImpl;
 	
 
+	
+	
 	public User validateUserUsing(String username, String password) {
 		
 		User user = userRoleDaoImpl.findUserWithUsernameAndPassword(username, password);
@@ -25,15 +27,38 @@ public class LoginAndUserService {
 	
 	}
 	
-	public List<User> getAllUsersWithRoles(){ return null;}
+	public List<UserEager> getAllUsersWithRoles(){ 
+		
+		List<UserEager> users = userRoleDaoImpl.findAllUsersWithRoles();
+		return users!= null?users:null;
+		
+	}
 	
-	public List<Role> getOnlyRoleList(){return null;}
+	public List<Role> getOnlyRoleList(){
+		
+		List<Role> roles = userRoleDaoImpl.findOnlyRoles();
+		return roles!= null?roles:null;
 	
-	public List<User> getOnlyUserList(){return null;}
+	}
 	
-	public void createUserWithRole() {}
 	
-	public void createRole() {}
+	public List<User> getOnlyUserList(){
+		
+		List<User> users = userRoleDaoImpl.findOnlyUsers();
+		return users!= null?users:null;
+	
+	}
+	
+	public List<UserEager> createUserWithRole(UserEager user) {
+		
+		List<UserEager> users = userRoleDaoImpl.addUserWithRole(user);
+		return users!= null?users:null;
+	}
+	
+	public List<Role> createRole(Role role) {
+		List<Role> roles = userRoleDaoImpl.addRole(role);
+		return roles!= null?roles:null;
+	}
 	
 	public void updateUserOnly() {}
 	

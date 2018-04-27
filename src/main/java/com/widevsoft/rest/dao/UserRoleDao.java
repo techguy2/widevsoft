@@ -4,21 +4,22 @@ import java.util.List;
 
 import com.widevsoft.rest.pojo.Role;
 import com.widevsoft.rest.pojo.User;
+import com.widevsoft.rest.pojo.UserEager;
 
 
 public interface UserRoleDao {
 	
 	public User findUserWithUsernameAndPassword(String username, String password);
 	
-	public User addUser(User user);
+	public List<UserEager> addUserWithRole(UserEager user);
 	
-	public Role addRole(Role role);
+	public List<Role> addRole(Role role);
 	
 	public List<User> findOnlyUsers();
 	
 	public List<Role> findOnlyRoles();
 	
-	public List<User> findAllUsersWithRoles();
+	public List<UserEager> findAllUsersWithRoles();
 	
 	public boolean updateUserRoleById(User user);
 	

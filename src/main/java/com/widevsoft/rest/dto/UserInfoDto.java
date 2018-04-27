@@ -13,7 +13,7 @@ public class UserInfoDto {
 	
 	private Date dob;
 	
-	private Date lastUpdated;
+	private Date updatedOn;
 	
 	private Set<RoleInfoDto> roleInfo = new HashSet<RoleInfoDto>(3); 
 
@@ -41,12 +41,12 @@ public class UserInfoDto {
 		this.dob = dob;
 	}
 
-	public Date getLastUpdated() {
-		return lastUpdated;
+	public Date getUpdatedOn() {
+		return updatedOn;
 	}
 
-	public void setLastUpdated(Date lastUpdated) {
-		this.lastUpdated = lastUpdated;
+	public void setUpdatedOn(Date lastUpdated) {
+		this.updatedOn = lastUpdated;
 	}
 
 	public Set<RoleInfoDto> getRoleInfo() {

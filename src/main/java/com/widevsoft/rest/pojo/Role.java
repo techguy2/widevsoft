@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="roles")
@@ -24,8 +26,12 @@ public class Role {
 	@Column(nullable = false, length = 50, unique = true)
 	private String name;
 	
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdOn = new Date();
+	
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date updatedOn = new Date();
+	
 	private int deleteFlag = 1 ;
 	
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "roles")
